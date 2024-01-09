@@ -7,7 +7,7 @@ var AdminAuth = require("../middleware/AdminAuth");//variavel de autorização, 
 
 router.get('/', HomeController.index);
 router.post('/user', UserController.create);//serve para enviar informações para o banco
-router.get("/user", UserController.index);//vai retornar todos os usuarios
+router.get("/user",AdminAuth, UserController.index);//vai retornar todos os usuarios
 router.get("/user/:id",UserController.findUser);// buscar pelo id
 router.put("/user",UserController.edit);// rota de edição
 router.delete("/user/:id", AdminAuth, UserController.remove);// Rota de deletar usuario

@@ -11,16 +11,14 @@ function AdminAuth(to, from, next){
 
     var req = {
       headers: {
-        Authorization : "Bearer" + localStorage.getItem('token')
+        Authorization: "Bearer " + localStorage.getItem('token')
       }
     }
 
-    console.log(req);
-
-    axios.post("http//localhost:8686/validate",{},req).then(res => {
-      console.log(res)
+    axios.post("http://localhost:8686/validate",{},req).then(res => {
+      console.log(res);
       next();
-    }).catch(err =>{
+    }).catch(err => {
       console.log(err.response);
       next("/login");
     });
