@@ -17,7 +17,9 @@
                 <p>Password</p>
                 <input type="password" placeholder="******" class="input" v-model="password">
                 <hr/>
-                <button class="button is-success" @click="register">Cadastrar</button>
+                <button class="button is-success" @click="register">Cadastrar</button><br><br>
+                <p>Já tem uma conta?</p><br>
+                <button class="button is-success" @click="login">Login</button>
             </div>
         </div>
         
@@ -43,15 +45,15 @@ export default {
                 email : this.email
             }).then(res =>{
                 console.log(res);
-                this.$router.push({name: 'Home'})
+                this.$router.push({name: 'Login'})
             }).catch(err => {
                 var msgError = err.response.data.err;
                 this.error = msgError;
 
             })
-            //console.log(this.name);
-            //console.log(this.password);
-            //console.log(this.email);
+        },
+        login(){
+            this.$router.push({name: 'Login'})
         }
     }
     

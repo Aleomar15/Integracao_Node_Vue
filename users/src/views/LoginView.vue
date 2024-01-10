@@ -15,7 +15,9 @@
                 <p>Password</p>
                 <input type="password" placeholder="******" class="input" v-model="password">
                 <hr/>
-                <button class="button is-success" @click="login">Login</button>
+                <button class="button is-success" @click="login">Login</button><br><br>
+                <p>Não tem uma conta?</p><br>
+                <button class="button is-success" @click="register">Register</button>
             </div>
         </div>
         
@@ -46,6 +48,9 @@ export default {
                 this.error = msgError;
 
             })
+        },
+        register(){
+            this.$router.push({name: 'Register'})
         }
     }
     
