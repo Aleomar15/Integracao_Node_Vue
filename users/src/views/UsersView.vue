@@ -3,27 +3,28 @@
     <h1>Painel ADM</h1>
     <div v-for="users in users" :key="users.id">
     </div>
-    <table class="table">
-        <thead>
-            <tr>
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th>Cargo</th>
-            <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="user in users" :key="user.id">
-                <td>{{user.name}}</td>
-                <td>{{user.email}}</td>
-                <td>{{ user.role | processRole }}</td>
-                <td>
-                    <router-link :to="{name: 'UserEdit', params:{id: user.id}}"><button class="button is-success">Editar</button></router-link> | 
-                    <button class="button is-danger" @click="showModalUser(user.id)">Deletar</button></td>
-            </tr>
-        </tbody>
-        </table>
-
+    <div class="is-flex is-justify-content-center">
+      <table class="table">
+          <thead>
+              <tr>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Cargo</th>
+              <th>Ações</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr v-for="user in users" :key="user.id">
+                  <td>{{user.name}}</td>
+                  <td>{{user.email}}</td>
+                  <td>{{ user.role | processRole }}</td>
+                  <td>
+                      <router-link :to="{name: 'UserEdit', params:{id: user.id}}"><button class="button is-success">Editar</button></router-link> | 
+                      <button class="button is-danger" @click="showModalUser(user.id)">Deletar</button></td>
+              </tr>
+          </tbody>
+          </table>
+        </div>    
         <div :class="{modal: true, 'is-active': showModal}">
           <div class="modal-background"></div>
           <div class="modal-content">
